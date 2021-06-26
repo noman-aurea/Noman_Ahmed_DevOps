@@ -15,11 +15,7 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: NuGetToolInstaller@1
 
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
 
 - task: VSBuild@1
   inputs:
@@ -28,7 +24,7 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: IISWebAppDeploymentOnMachineGroup@0
+- task: PowerShell@2
   inputs:
-    WebSiteName: 'Noman_Ahmed_DevOps'
-    Package: '$(System.DefaultWorkingDirectory)\**\*.zip'
+    filePath: './custom-script.ps1'
+

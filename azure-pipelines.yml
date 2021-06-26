@@ -28,3 +28,7 @@ steps:
   inputs:
     filePath: './custom-script.ps1'
 
+- task: IISWebAppDeploymentOnMachineGroup@0
+  inputs:
+    WebSiteName: 'Noman_Ahmed_DevOps'
+    Package: '$(System.DefaultWorkingDirectory)\**\*.zip'
